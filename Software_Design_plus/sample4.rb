@@ -41,8 +41,3 @@ puts 14.divmod(3)
 
 quo_rem = 14.divmod(3)
 puts "商=#{quo_rem[0]},余り=#{quo_rem[1]}"
-
-cd 
-git add .
-git commit -m "[Add][Software_Design_plus]_chapter4_1"
-git push origin main
