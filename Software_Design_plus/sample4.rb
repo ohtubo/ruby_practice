@@ -41,3 +41,80 @@ puts 14.divmod(3)
 
 quo_rem = 14.divmod(3)
 puts "商=#{quo_rem[0]},余り=#{quo_rem[1]}"
+
+
+puts '-----------------ブロック------------------------------------'
+
+  number = [1, 2, 3, 4]
+  sum = 0
+  number.each do |n|
+    sum += n
+  end
+  
+  puts sum
+  
+puts '-----------------ブロック(each以外の使用例)------------------------------------'
+
+  a = [1, 2, 3, 1, 2, 3]
+  
+  a.delete(2)
+  puts a
+  
+puts '-----------------------------------------------------'
+
+  a = [1, 2, 3, 1, 2, 3]
+ 
+  a.delete_if do |n|
+    n.odd?
+  end
+  puts a
+
+puts '-----------------ブロック引数------------------------------------'
+
+  sum = 0
+  
+  number.each do |n|
+    sum += n
+  end
+  puts sum
+  
+  number.each do |i|
+    sum += i
+  end
+  puts sum
+  
+  number.each do |number|
+    sum += number
+  end 
+  puts sum
+  
+  number.each do |element|
+    sum += element
+  end 
+  puts sum
+  
+puts '-----------------ブロック引数(詳細)------------------------------------'
+
+  abcs = [1, 2, 3, 4]
+  sum = 0
+  
+  abcs.each do |element|
+    sum_value = element.even?? element*10 : element
+    sum += sum_value
+  end 
+  
+  puts sum
+  
+puts '-----------------ブロック配列メソッド(map/collect)------------------------------------'
+ 
+ #各要素を10倍にする
+  numbers = [1,2,3,4,5]
+  new_number = []
+  numbers.each{ |n| new_number << n * 10}
+  puts new_number
+puts '-----------------'  
+  numbers = [1,2,3,4,5]
+  new_number = numbers.map{ |n| n*10}
+  puts new_number
+  
+  
