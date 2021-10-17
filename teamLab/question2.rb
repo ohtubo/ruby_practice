@@ -41,3 +41,25 @@ end
 
 
 puts "トラックは#{count}台必要"
+
+##パターン２
+num = 600
+weight = 600
+track = 5000
+i = 1
+sum = 1
+  for i in 1..600
+    if track >= weight
+      track -= weight
+    else
+      track = 5000
+      track -= weight
+      sum += 1
+    end
+    weight -= 1
+  end
+  
+  puts sum
+
+
+# 38

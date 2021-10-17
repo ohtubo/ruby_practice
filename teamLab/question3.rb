@@ -13,3 +13,38 @@ while i <= 1000000
 end
 
 puts s.size
+
+#パターン２
+
+#約数的ソート
+start = 2
+finish = 1000000
+
+n = finish - start
+
+num = Array.new(n)
+result = Array.new(n)
+a = start
+k = 0
+l = 0
+
+for i in 0..n
+  num[i] = a
+  a += 1
+end
+
+for j in start..finish
+  while k < num.length
+    if num[k] % j == 0
+      result[l] = num[k]
+      num.delete_at(k)
+      l += 1
+    end
+    k += 1
+  end
+  k = 0
+end
+
+result.reverse!
+
+puts result[240002]
