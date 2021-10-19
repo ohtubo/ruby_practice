@@ -1,7 +1,7 @@
-# ・1から100までの整数の4乗の和を求めてください。
+# ・1から50までの整数の4乗の和を求めてください。
 
 number = 1
-max_number = 100
+max_number = 50
   sum = 0
 
   while number <= max_number
