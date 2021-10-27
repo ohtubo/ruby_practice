@@ -52,3 +52,20 @@ foods.each do |food|
   
   redo unless answer == 'はい'
 end
+
+puts '------------4.10繰り返し処理制御構造(redo 制限版)-----------------------------------------'
+#繰り返し処理をやり直したい場合
+
+foods = ['ピーマン','トマト','セロリ']
+count = 0
+foods.each do |food|
+  print "#{food}は好きですか？ =>"
+  answer = 'いいえ'
+  puts answer
+  
+  count += 1
+  redo if answer != 'はい' && count < 2
+  
+  count = 0
+  
+end
