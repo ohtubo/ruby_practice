@@ -1,6 +1,6 @@
 puts '-----------------5.ハッシュやシンボル-------------------------------------'
 
-puts '-----------------5.ハッシュ-------------------------------------'
+puts '-----------------5.2.ハッシュ-------------------------------------'
 
 {}.class
 
@@ -60,3 +60,62 @@ puts currencies
 puts currencies.delete('italy')
 
 puts currencies.delete('italy'){|key| "Not found: #{key}"}
+
+puts '-----------------5.3.シンボルと文字列の違い------------------------------------'
+
+#シンボル型とは
+
+puts :apple.class
+puts 'apple'.class
+
+#シンボルは同じID
+puts ":apple.object_id:#{:apple.object_id} "
+puts ":apple.object_id:#{:apple.object_id} "
+puts ":apple.object_id:#{:apple.object_id} "
+
+#文字列は違うID
+puts "'apple'.object_id:#{'apple'.object_id} "
+puts "'apple'.object_id:#{'apple'.object_id} "
+puts "'apple'.object_id:#{'apple'.object_id} "
+
+#シンバルはイミュータブルなオブジェクトの為破壊的な適用が出来ない(エラーになる)
+# puts :apple.upcase! 
+# puts 'apple'.upcase!
+
+puts '-----------------5.3.シンボルの使用例------------------------------------'
+
+currencies = {'japan' => 'yen','us' => 'dollar','india' => 'rupee'}
+puts currencies['japan']
+
+currencies = {:japan => 'yen',:us => 'dollar',:india => 'rupee'}
+puts currencies[:japan]
+
+print :apple.methods
+puts
+print 'apple'.methods
+puts
+
+puts '-----------------5.4.ハッシュにシンボルを使う------------------------------------'
+
+currencies = {:japan => 'yen',:us => 'dollar',:india => 'rupee'}
+currencies[:italy] = 'euro'
+print currencies
+puts
+
+#別の方法
+currencies = {japan: 'yen',us: 'dollar',india: 'rupee'}
+puts currencies[:us]
+
+#ハッシュニア格納する値はよく異なるデータが入る
+
+person = {
+  name: 'Alice',
+  age: 20,
+  friends: ['Bod','Carol'],
+  phones: {home: '1234-000', mobile: '5678-0000'}
+}
+
+puts person[:age]
+print person[:friends]
+puts
+puts person[:phones][:mobile]
