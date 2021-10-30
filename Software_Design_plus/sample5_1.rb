@@ -119,3 +119,35 @@ puts person[:age]
 print person[:friends]
 puts
 puts person[:phones][:mobile]
+
+puts '-----------------5.3.メソッドのキーワード引数とハッシュ------------------------------------'
+
+def buy_burger(menu, drinek, potato)
+  puts 'ハンバーガーを購入'
+  if drinek
+    puts 'ドリンクを購入'
+  end
+  if potato
+    puts 'ポテトを購入'
+  end
+end
+
+#これのみだとどの引数が何かよくわからない
+buy_burger('cheese', true, true)
+
+#キーワード引数を定義する
+def buy_burger(menu, drinek: true, potato: true)
+  puts "ハンバーガーを購入：#{menu}"
+  if drinek
+    puts 'ドリンクを購入'
+  end
+  if potato
+    puts 'ポテトを購入'
+  end
+end
+
+buy_burger('fish', drinek: true, potato: false)
+#デフォルト値は省略出来る
+buy_burger('double', potato: false)
+#順番も入れ替えられる
+buy_burger('shrimp', potato: true, drinek: true )
