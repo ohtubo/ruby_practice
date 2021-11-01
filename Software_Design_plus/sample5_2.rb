@@ -56,5 +56,50 @@ end
 #第一引数に()無しでハッシュを渡すとブロックと勘違いされる
 # buy_burger 'drink' => true, 'potato' => false, 'fish'
 
+puts '-----------------5.7.シンボル詳細------------------------------------'
+puts '-----------------5.7.シンボルの作成------------------------------------'
 
+#有効なシンボル
 
+puts :apple
+puts :Apple
+puts :ruby_is_fun
+puts :okay?
+puts :welcome!
+puts :_select
+puts :$dollar
+puts :@at_mark
+
+#無効なシンボル(シングル''をつけると定義でき、ダブルで式展開が出来る)
+puts :'12345'
+puts :'ruby-is-fun'
+puts :'ruby is fun'
+puts :'()'
+name = 'Alice'
+puts :"#{name.upcase}"
+
+puts '-----------------5.7.%記法------------------------------------'
+
+puts %s!ruby is fun!
+puts %s(ruby is fun)
+print %i!ruby is fun!
+puts
+
+name = 'Alice'
+print %i(hello\ngood-bye#{name.upcase})
+puts
+print %I(hello\ngood-bye#{name.upcase})
+puts
+
+puts '-----------------5.7.シンボルと文字関係------------------------------------'
+
+#基本的に互換性はない
+string = 'apple'
+symbol = :apple
+
+puts string == symbol
+
+#to_symメソッドto_sメソッドを使うと互換性を持たせられる
+
+puts string.to_sym == symbol
+puts string == symbol.to_s

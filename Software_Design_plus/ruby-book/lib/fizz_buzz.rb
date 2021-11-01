@@ -1,5 +1,7 @@
 # puts 'Hello, world!'
 
+n = gets.to_i
+
 def fizz_buzz(n)
   
   if n % 15 == 0
@@ -12,3 +14,5 @@ def fizz_buzz(n)
     n.to_s
   end
 end
+
+puts "結果：#{fizz_buzz(n)}"
