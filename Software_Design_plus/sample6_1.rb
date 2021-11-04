@@ -110,4 +110,36 @@ print text.slice!(/\d{3}-\d{4}/)
 puts text
 puts '-----------------6.3.spliit------------------------------------'
 
+text = '123,456-789'
+
+print text.split(',')
+puts
+
+print text.split(/,|-/)
+puts
+
 puts '-----------------6.3.gsub,gsub!------------------------------------'
+
+text2 = '123,456-789'
+
+puts text2.gsub(',',':')
+
+puts text2.gsub(/,|-/,':')
+
+text = '誕生日は1996年04月01日です'
+puts text.gsub(/(\d+)年(\d+)月(\d+)日/,'\1-\2-\3')
+
+text = '誕生日は1889年05月01日です'
+puts text.gsub(/(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/,'\k<year>-\k<month>-\k<day>')
+
+text2 = '987:654,321'
+hash = {','=>':','-'=>'/'}
+puts text2.gsub(/,|-/,hash)
+
+text2 = '987,654:321'
+puts text2.gsub(/,|-/){|matched| matched ==',' ? ':' : '/'}
+
+text2 = '123,456-789'
+
+puts text2.gsub!(/,|-/,':')
+puts text2
