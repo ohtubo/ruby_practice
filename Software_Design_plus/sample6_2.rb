@@ -75,3 +75,22 @@ puts $2
 puts $3
 
 puts $+
+
+puts '-----------------6.5.正規化マッチ結果の取得------------------------------------'
+
+text = '私の誕生日は2000年07月20日です。'
+
+text =~ /(\d+)年(\d+)月(\d+)日/
+
+puts Regexp.last_match
+
+puts Regexp.last_match(0)
+puts Regexp.last_match(1)
+puts Regexp.last_match(2)
+puts Regexp.last_match(3)
+puts Regexp.last_match(-1)
+
+
+puts /\d{3}-\d{4}/.match?('123-4567')
+puts '123-4567'.match?(/\d{3}-\d{4}/)
+
