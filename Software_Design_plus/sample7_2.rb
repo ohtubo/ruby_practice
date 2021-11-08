@@ -77,3 +77,23 @@ user = User.new('Alice')
 user.name = 'Bob'
 puts user.name
 
+puts '-----------------7.3.クラスメソッドの定義------------------------------------'
+
+class User
+  def initialize(name)
+    @name = name
+  end
+  
+  def hello
+    puts "Hello, I am #{@name}."
+  end
+  
+  alice = User.new('Alice')
+  
+  alice.hello
+  
+  bob = User.new('Bob')
+  
+  bob.hello
+
+end
