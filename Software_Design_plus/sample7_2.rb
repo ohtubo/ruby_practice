@@ -97,3 +97,43 @@ class User
   bob.hello
 
 end
+
+class User
+  def initialize(name)
+    @name = name
+  end
+
+  def self.create_user(names)
+    names.map do |name|
+      User.new(name)
+    end
+  end
+  
+  def hello
+    "Hello, I am #{@name}."
+  end
+end
+
+names = ['Alice', 'Bob', 'Jon']
+
+users = User.create_user(names)
+users.each do |user|
+  puts user.hello
+end
+
+puts '-----------------7.3.定数------------------------------------'
+
+class Product
+
+  DEFAULT_PRICE = 0
+
+  attr_reader :name, :price
+  
+  def initialize(name, price = DEFAULT_PRICE)
+    @name = name
+    @price = price
+  end
+end
+
+product = Product.new('A free movie')
+puts product.price
