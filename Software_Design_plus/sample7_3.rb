@@ -44,10 +44,14 @@ class Foo
   
   def self.bar 
     puts "クラスメソッド内のself: #{self}"
+    # エラー：クラスメソッド内でインスタンスメソッドを呼び出す
+    # self.bar
   end
   
   def baz
     puts "インスタンスメソッド内のself: #{self}"
+    # エラー：インスタンスメソッド内でクラスメソッドを呼び出す
+    # self.bar
   end
 
 end
@@ -56,3 +60,45 @@ Foo.bar
 
 foo = Foo.new
 foo.baz
+
+class Foo
+  
+  #この時点ではクラスメソッドbarが定義されていないので呼び出せない
+  # self.bar
+  
+  def self.bar
+    puts 'hello'
+  end
+  
+  self.bar
+  
+  3.times do
+    puts 'godbay'
+  end
+end
+
+puts '-----------------7.5.3.クラスメソッドをインスタントメソッドで呼び出す------------------------------------'
+
+class Product
+
+  attr_reader :name, :price
+  
+  def initialize(name, price)
+    @name = name
+    @price = price
+  end
+  
+  def self.format_price(price)
+    "#{price}円"
+  end
+  
+  def to_s
+    # インスタンスメソッドからクラスメソッドを呼び出す。
+    # formatted_price = Product.format_price(price)
+    formatted_price = self.class.format_price(price)
+    "#{name}, price: #{formatted_price}"
+  end
+end
+
+product = Product.new('A great movie', 1000)
+puts product.to_s
