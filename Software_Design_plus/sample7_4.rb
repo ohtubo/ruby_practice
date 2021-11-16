@@ -67,6 +67,10 @@ puts '-----------------7.6.4.他class継承class作る--------------------------
       @name = name
       @price = price
     end
+    
+    def to_s
+      "name: #{name}, price: #{price}"
+    end
   end
   
   class DVD < Product
@@ -77,10 +81,33 @@ puts '-----------------7.6.4.他class継承class作る--------------------------
       @running_time = running_time
     end
     
+    # def to_s
+    #   "name: #{name}, price: #{price}, running_time: #{running_time}"
+    # end
+
+    def to_s
+      #スーパークラスのto_sメソッドを呼び出す
+      "#{super}, running_time: #{running_time}"
+    end
+    
   end
   
   product = Product.new('A great movie', 1000)
   puts product.to_s
   
-  dvd = DVD.new('A great movie', 1000, 120)
+  dvd = DVD.new('A great film', 3000, 120)
   puts dvd.to_s
+  
+  puts '-----------------7.6.7.クラスメソッドの継承------------------------------------'
+  
+  class Foo
+    def self.hello
+      'hello'
+    end
+  end
+  
+  class Bar < Foo
+  end
+  
+  puts Foo.hello
+  puts Bar.hello
