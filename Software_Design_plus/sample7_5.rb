@@ -65,3 +65,40 @@ puts product.to_s
 
 dvd = DVD.new
 puts dvd.to_s
+
+puts '-----------------7.8.1定数について(詳細)--------------------------------------------'
+
+  class Product
+    DEFAULT_PRICE = 0
+    # private_constantをつけて外部参照を出来なくする
+    # private_constant :DEFAULT_PRICE
+    # def foo
+    #   #定数はクラス直下に定義する
+    #   DEFAULT_PRICE = 0
+    # end
+  end
+  puts Product::DEFAULT_PRICE
+  
+  class Product
+    DEFAULT_PRICE = 0
+    DEFAULT_PRICE = 1000
+  end
+  
+  puts Product::DEFAULT_PRICE
+  puts Product::DEFAULT_PRICE = 3000
+
+
+puts '-----------------7.8.2ミュータブルなオブジェクトに注意--------------------------------------------'
+
+  class Product
+    NAME = 'A product'
+    SOME_NAME = ['Foo', 'Bar', 'Baz']
+    SOME_PRICES = {'Foo' => 1000, 'Bar' => 2000, 'Baz' => 3000}
+  end
+
+  puts Product::NAME.upcase!
+  print Product::SOME_NAME << 'Hoge'
+  puts
+  Product::SOME_PRICES['Hoge'] = 4000
+  print Product::SOME_PRICES
+  puts
