@@ -99,3 +99,37 @@ end
 
 
 puts '-----------------7.10.5.等値を判断するメソッドや演算子--------------------------------------------'
+
+
+puts '---equal---'
+a = 'abc'
+b = 'abc'
+
+puts a.equal?(b)
+
+c = a
+puts a.equal?(c)
+
+puts '---==---'
+puts 1 == 1.0
+
+puts '---eql?---'
+h = {1 => 'Integer', 1.0 => 'Float'}
+h[1]
+h[1.0]
+
+puts 1.eql?(1.0)
+
+a = 'japan'
+b = 'japan'
+
+a.eql?(b)
+a.hash
+b.hash
+
+c = 1
+d = 1.0
+
+puts c.eql?(d)
+puts c.hash
+puts d.hash
