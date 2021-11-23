@@ -133,3 +133,89 @@ d = 1.0
 puts c.eql?(d)
 puts c.hash
 puts d.hash
+
+puts '-----------------7.10.6.オープンclassとモンキーパッチ--------------------------------------------'
+
+class MyString < String
+  
+end
+s = MyString.new('Hello')
+puts s
+puts s.class
+
+class MyArray < Array
+  
+end
+a = MyArray.new()
+a << 1
+a << 2
+puts a.class
+
+class String 
+  def shuffle
+    chars.shuffle.join
+  end
+end
+
+s = 'Hello, I am Alice.'
+puts s.shuffle
+puts s.shuffle
+
+# puts 'MyString'.underscore
+
+# number = [1, 2, 3]
+# 2.in?(number)
+# 5.in?(number)
+
+class User
+  def initialize(name)
+    @name = name
+  end
+  
+  def hello
+    "Hello, #{@name}!"
+  end
+end
+
+user = User.new('Alice')
+puts user.hello
+
+class User
+  def hello
+    "#{@name}さん、こんにちは！"
+  end
+end
+
+puts user.hello
+
+class User
+  def initialize(name)
+    @name = name
+  end
+  
+  def hello
+    "Hello, #{@name}"
+  end
+end
+
+class User
+
+  alias hello_original hello
+  
+  def hello
+    "#{hello_original}じゃなくて、#{@name}さん、こんにちは！"
+  end
+
+end
+
+user = User.new('Alice')
+puts user.hello
+
+
+puts '-----------------7.10.7.--------------------------------------------'
+
+puts '-----------------7.10.8.--------------------------------------------'
+
+puts '-----------------7.10.9.--------------------------------------------'
+
+puts '-----------------7.10.10.--------------------------------------------'
